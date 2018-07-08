@@ -45,7 +45,7 @@ waitress-1.1.0.dist-info/WHEEL,sha256=kdsN-5OJAZIiHN-iO4Rhl82KyS0bDWf4uBwMbkNafr
 waitress-1.1.0.dist-info/entry_points.txt,sha256=mca3WWnucj54vliG494gGd5qBFEIc_HQ6lFAPiE7gow,126
 waitress-1.1.0.dist-info/metadata.json,sha256=UL_6StgUn-WUcyGtoW2YACVsd5chD15r7mE_QNchYDA,1607
 waitress-1.1.0.dist-info/top_level.txt,sha256=_kFnXYtDXvRWHSXprH53h56AM2jDfY-Y7sgIakVEImI,9
-../../bin/waitress-serve.exe,sha256=-WvoSQmLPz97aYuH1fXwxJOqJj3hsM7SwxC2Vomgfnc,102789
+../../bin/waitress-serve.exe,sha256=FMncHKC51BnlE8tpG7A4w9sbiJvjUEYunLQGiPfC8XQ,102780
 waitress-1.1.0.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
 waitress/utilities.pyc,,
 waitress/adjustments.pyc,,

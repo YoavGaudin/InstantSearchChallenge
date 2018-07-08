@@ -1,29 +1,31 @@
-import webtest
-from unittest import TestCase
-import main
+import requests
+import time
 
 
-class TestGetHandler(TestCase):
-    def setUp(self):
-        pass
+class TestRequestSequence():
+    def run_tests(self):
+        print("Running test 1")
+        self.test_sequence_1()
+        print("Running test 2")
+        self.test_sequence_2()
+        print("Running test 3")
+        self.test_sequence_3()
 
-    def test_get(self):
-        app = webtest.TestApp(main.application)
-
-        response = app.get('/get')
-
-        assert response.status_int == 200
-        assert response.body == 'GetHandler'
-
-
-class TestRequestSequence(TestCase):
-    def setUp(self):
-        self.app = webtest.TestApp(main.application)
+    @staticmethod
+    def get(cmd, params):
+        url = 'https://instantsearchchallenge.appspot.com{}'.format(cmd)
+        return requests.get(url, params=params)
 
     def _test_sequence(self, sequence):
         for cmd, params, expected in sequence:
-            response = self.app.get('/{}'.format(cmd), params)
-            self.assertEqual(response, expected)
+            response = self.get('/{}'.format(cmd), params)
+            try:
+                assert response.content == str(expected)
+            except AssertionError as e:
+                self.get('/end', {})
+                raise e
+            print("\t{} {} returned '{}' == '{}'".format(cmd, params, response.content, expected))
+            time.sleep(1)
 
     def test_sequence_1(self):
         seq = [
@@ -70,4 +72,5 @@ class TestRequestSequence(TestCase):
         self._test_sequence(seq)
 
 
-
+if __name__ == '__main__':
+    TestRequestSequence().run_tests()
